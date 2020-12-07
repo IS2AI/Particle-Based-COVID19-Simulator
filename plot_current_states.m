@@ -57,7 +57,7 @@ legend([ha hb], 'Dead', 'Severe Infected', 'Location','northwest','Orientation',
 hold off;
 
 if save_figures == 1
-    filename = sprintf('ind_%d.png', cur_iter);
+    filename = sprintf('plot/ind_%d.png', cur_iter);
     saveas(f1, filename);
 end
 
