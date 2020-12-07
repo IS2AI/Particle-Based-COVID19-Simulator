@@ -68,10 +68,7 @@ hc = plot(time_vec, tot_severe_inf(1:cur_iter), 'r-', 'LineWidth', 1);
 legend([ha hd hc hb], 'Quarantined', 'Isolated', 'Severe Infected', 'Dead', 'FontSize', 10', 'Location','northwest','Orientation','Vertical');
 hold off;
 
-filename = sprintf('plot_100_20_2/ind_%d.png', cur_iter);
-%pause(0.1)
+filename = sprintf('plot/ind_%d.png', cur_iter);
 saveas(f1, filename);
-%hgexport(f1, filename, hgexport('factorystyle'), 'Format', 'png')
-%export_fig(filename)
-%print(f1, '-djpeg', filename);
+
 end
