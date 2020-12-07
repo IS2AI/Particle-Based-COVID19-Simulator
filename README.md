@@ -11,7 +11,6 @@ For more information about the project please watch this video: https://www.yout
 ## Simulations
 In order to replicate results in the paper for the Lecco province, run the **main_lecco.m** file
 by setting the *tracking_rate* and *testing_rate* parameters as in the paper.
-If you are interested in simulating for a new region then open **main.m** file, set new parameters
-and run it. 
+If you are interested in simulating for a new region then you need to open **main.m** file and calibrate the model by setting new parameters. 
 
 
