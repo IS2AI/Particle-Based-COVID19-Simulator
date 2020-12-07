@@ -3,10 +3,9 @@ function plot_map(ind, tot_exposed, ind_exposed, tot_infected, ind_infected, tot
     tot_susceptible, ind_susceptible, x, save_figures)
 
 f2 = figure(2);
-%set(f2,'Position',[60 60 500 500]);
 set(f2, 'PaperUnits', 'centimeters');
 set(f2, 'PaperPosition', [0 0 13 13]);
-%set(f2,'defaultFigurePaperPositionMode','manual')
+
 legend_list = {};
 if (tot_susceptible(ind) > 0)
     plot(x(ind_susceptible, 1), x(ind_susceptible, 2), 'b .','MarkerSize', 10)
@@ -89,11 +88,8 @@ set(gca,'XTick', [], 'YTick', [])
 hold off
 axis tight
 
-%pause(0.1)
 if save_figures
-    filename2 = sprintf('map_100_20_2/ind_%d.png', ind);
+    filename2 = sprintf('map/ind_%d.png', ind);
     saveas(f2, filename2);
-    %hgexport(f2, filename, hgexport('factorystyle'), 'Format', 'png')
-    %export_fig(filename2)
 end
 
