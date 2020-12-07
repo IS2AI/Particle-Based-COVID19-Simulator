@@ -2,7 +2,7 @@
 Particle-based COVID-19 simulator with contact tracing and testing modules.
 For more information about the project please watch this video: https://www.youtube.com/watch?v=BJfjmWfi6ac&feature=youtu.be 
 
-<img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_based_epidemic_simulation.gif">>
+<img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_based_epidemic_simulation.gif">
 
 ## Requirements:
 1. OS Windows/Linux/Mac.
