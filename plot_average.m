@@ -12,7 +12,7 @@ tot_cases_high = tot_cases + std_dev_tot;
 tot_dead_low = tot_dead - std_dev_dead;
 tot_dead_high = tot_dead + std_dev_dead;
 
-% construc the time vector
+% construct the time vector
 time_vec = (0:cur_iter - 1) * delta_t;
 
 f1 = figure(1);
@@ -92,5 +92,5 @@ ylim([0 1500]);
 legend([ha hb hc], 'Dead (Actual)', 'Dead', 'Severe Infected', 'FontSize', 12', 'Location','northwest','Orientation','Vertical');
 hold off;
 
-saveas(f1, 'milan_std_dev.png')
+saveas(f1, 'average_std_dev.png')
 end
