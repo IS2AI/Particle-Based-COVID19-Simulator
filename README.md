@@ -2,6 +2,8 @@
 Particle-based COVID-19 simulator with contact tracing and testing modules.
 <img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_on_map.png" width="400">
 
+<img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_based_epidemic_simulation.gif">
+
 ## Requirements:
 1. OS Windows/Linux/Mac.
 2. MATLAB R2019/R2020.
