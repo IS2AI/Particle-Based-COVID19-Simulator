@@ -34,7 +34,6 @@ legend_list = [legend_list, 'Dead'];
 p9 = plot(time_vec, tot_cases(1:cur_iter), 'b-', 'LineWidth', 1);
 legend_list = [legend_list, 'Total cases'];
 
-
 legend( legend_list, 'FontName','Arial', 'FontSize', 10','FontWeight','Demi','Location','northwest','Orientation','Vertical');
 
 ylabel('Number of individuals','FontName','Arial', 'FontSize', 12, 'FontWeight', 'Demi');
@@ -58,7 +57,7 @@ legend([ha hb], 'Dead', 'Severe Infected', 'Location','northwest','Orientation',
 hold off;
 
 if save_figures == 1
-    filename = sprintf('plot/ind_%d.png', cur_iter);
+    filename = sprintf('ind_%d.png', cur_iter);
     saveas(f1, filename);
 end
 
