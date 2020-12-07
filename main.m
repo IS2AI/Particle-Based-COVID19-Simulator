@@ -2,9 +2,9 @@
 close all; clear; clc;
 
 %% initialize parameters
-num_simulations = 1;                          % Number of simulations
+num_simulations = 10;                         % Total number of simulations
 num_population = 337000;                      % Total number of particles
-num_exposed = 10;                              % Initial number of exposed particles
+num_exposed = 10;                             % Initial number of exposed particles
 sim_length = 200;                             % Length of the simulation in days
 
 mean_dst = 1/sqrt(num_population);            % Mean distance between particles 
@@ -14,22 +14,22 @@ init_alpha = init_max_vel/10;                 % Speed gain of particles
 delta_t = init_cont_thr/init_max_vel;         % Sampling time in days
 num_iter = ceil(sim_length/delta_t);          % Total number of iterations
 
-save_figures = 0;          % 0: don't save, 1: save.
-vis = 1000;                % plot results after each vis iterations
-kdt = 10;                  % run KdtTree after each kdt iterations 
+save_figures = 0;          % Save 2d map and plot. 0: no, 1: yes.
+vis = 1000;                % plot figures after each vis iterations
+kdt = 10;                  % run KdtTree search algorithm after each kdt iterations 
 load_init_states = 1;      % 1: Load initial positions x, velocities v, and indicies of exposed particles ind_exposed
                            % 0: generate random initial positions x, velocities v, and indicies of exposed particles ind_exposed
 
 t_inf = 14;                 % Infection time in days
 t_exp = 5;                  % Exposure time in days
 
-sir = 0.02;                 % Daily Infected to Severe Infected Transition
-gamma_mor = 0.15;           % Ratio of Severe Infected who die. The rest go to Recovered state
+sir = 0.02;                 % Daily rate of Infected to Severe Infected Transition
+gamma_mor = 0.15;           % Ratio of Severe Infected who die. The rest transition to the Recovered state.
 
 tracking_rate = 0;          % Percentage of population using tracking app
-testing_rate = 5e-4;        % Daily rate of random testing for COVID-19
+testing_rate = 5e-4;        % Daily tests per thousand people
 test_sn = 0.95;             % Test sensitivity
-test_sp = 0.99;              % Test specificity
+test_sp = 0.99;             % Test specificity
 
 eps_exp = 0.7;      % Disease transmission rate of exposed compared to the infected
 eps_qua = 0.3;      % Disease transmission rate of quarantined compared to the infected
@@ -100,10 +100,10 @@ for num_sim = 1:num_simulations
     ind_false_isolated = zeros(num_population, 1);
     ind_severe_inf = zeros(num_population, 1);
     
-    % load infected persons
+    % load indices of exposed particles
     if load_init_states == 1
         load('initialization/ind_exposed.mat')
-    % otherwise randomly choose infected persons
+    % otherwise choose randomly
     else
         ind_exposed = randi([1 num_population], 1 , num_exposed);
     end
@@ -127,8 +127,7 @@ for num_sim = 1:num_simulations
         ind_false_isolated = (e == 8);
         ind_false_quarantined = (e == 9);
         
-        % extract a total number of particles in each state
-        % for the current iteration
+        % extract the total number of particles in each state
         tot_susceptible(ind) = sum(ind_susceptible);
         tot_exposed(ind) = sum(ind_exposed);
         tot_infected(ind) = sum(ind_infected);
@@ -176,7 +175,7 @@ for num_sim = 1:num_simulations
         x(x > 1) = -1;
         x(x < -1) = 1;
         
-        t = t + delta_t;  % Increase the state timer (Reset if state change occurs)
+        t = t + delta_t;  % Increase the state timer 
         
         % Computationally efficient distance computation
         temp = rand(num_population,1);
@@ -224,8 +223,8 @@ for num_sim = 1:num_simulations
         e(ind_contacts) = 1;    % Change their epidemic status to Exposed = 1
         t(ind_contacts) = 0;    % Reset state timer
                 
-        % Version 14 update - Contact tracing based quarantining
-        % Quarantine the (infected) contact list of a positive tested individual
+        % Contact tracing based quarantining
+        % Quarantine the contact list of a positive tested individual
         ind_recent_inf = (ts_t >= (ind - 1) | ts_f >= (ind - 1));
         for i = 1:numel(ind_recent_inf)
             % if the recently infected particle has installed app
@@ -259,7 +258,7 @@ for num_sim = 1:num_simulations
         e(ind_end_exposed) = 2;
         t(ind_end_exposed) = 0;
         
-        % True Quarantined to Isolated Transition
+        % True Quarantined to True Isolated Transition
         ind_end_quarantined = ((t >= t_exp) & (e == 5));
         e(ind_end_quarantined) = 6;
         t(ind_end_quarantined) = 0;
@@ -293,7 +292,6 @@ for num_sim = 1:num_simulations
                         
         % Random test for COVID-19 taking into account the
         % test sensitivity and specificity
-        %if mod(ind, kdt) == 0 
         ts_t(ts_t == 0 & (e == 1 | e == 2) & (temp < testing_rate * test_sn * delta_t)) = ind;     % Correct positive tests
         ts_f(ts_f == 0 & e == 0 & (temp < testing_rate * (1-test_sp) * delta_t)) = ind; % False positive tests
         
