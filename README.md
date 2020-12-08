@@ -11,7 +11,7 @@ Link to the video: https://www.youtube.com/watch?v=BJfjmWfi6ac&feature=youtu.be
 1. OS Windows/Linux/Mac.
 2. MATLAB R2019/R2020.
 
-## Simulations
+## How to use?
 In order to replicate results in the paper for the Lecco province, run the **main_lecco.m** file
 by setting the *tracking_rate* and *testing_rate* parameters as in the paper.
 If you are interested in simulating for a new region then you need to open **main.m** file and calibrate the model by setting new parameters. 
