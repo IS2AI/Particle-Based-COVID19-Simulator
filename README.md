@@ -4,6 +4,7 @@ For more information about the project please watch this video: https://www.yout
 
 # Note:
 If you use this code in research, please cite the following paper:
+```
 @article {Kuzdeuov2020.12.07.20245043,
 	author = {Kuzdeuov, Askat and Karabay, Aknur and Baimukashev, Daulet and Ibragimov, Bauyrzhan and Varol, Huseyin Atakan},
 	title = {Particle-Based COVID-19 Simulator with Contact Tracing and Testing},
@@ -14,6 +15,7 @@ If you use this code in research, please cite the following paper:
 	eprint = {https://www.medrxiv.org/content/early/2020/12/08/2020.12.07.20245043.full.pdf},
 	journal = {medRxiv}
 }
+```
 
 <img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_based_epidemic_simulation.gif">
 
