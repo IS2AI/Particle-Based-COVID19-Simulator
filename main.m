@@ -349,8 +349,7 @@ if num_sim > 1
     
     % plot averaged values with std devs
     plot_average(delta_t, num_iter, tot_exposed_avg, tot_infected_avg, tot_recovered_avg, tot_dead_avg, tot_quarantined_avg, ...
-        tot_isolated_avg, tot_severe_inf_avg, tot_cases_avg, total_cases_actual, death_cases_actual, actual_date, ...
-        std_dev_dead, std_dev_tot)
+        tot_isolated_avg, tot_severe_inf_avg, tot_cases_avg, std_dev_dead, std_dev_tot)
     
     % save data
     save 'output/track_0_05.mat'
