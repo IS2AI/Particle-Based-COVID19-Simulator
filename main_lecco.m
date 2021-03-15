@@ -2,7 +2,6 @@
 close all; clear; clc;
 
 %% initialize parameters
-%% initialize parameters
 n_sim = 10;            % Total number of simulations
 n = 337000;            % Total number of particles
 n_e = 10;              % Initial number of exposed particles
@@ -16,7 +15,7 @@ delta_t = init_x_thr/init_v_max;    % Sampling time in days
 num_iter = ceil(sim_len/delta_t);   % Num of iterations in the simulation
 
 save_plt = 0;          % 0: don't save plots, 1: save plots.
-plt_freq = 1000;       % frequency of visualizing plots
+plt_freq = 100;       % frequency of visualizing plots
 kdt_freq = 10;         % frequency of running the KdtTree algorithm 
 load_init_states = 1;  % 1: Load initial positions x, velocities v, and indicies of exposed particles ind_exposed
                        % 0: generate random initial positions x, velocities v, and indicies of exposed particles ind_exposed
@@ -27,7 +26,7 @@ t_exp = 5;                  % Exposure time in days
 sir = 0.02;                 % Daily rate of Infected to Severe Infected Transition
 gamma_mor = 0.15;           % Ratio of Severe Infected who die. The rest transition to the Recovered state.
 
-tracking_rate = 0;          % Percentage of population using tracking app
+tracing_ratio = 0;          % Percentage of population using tracking app
 testing_rate = 5e-4;        % Daily tests per thousand people
 test_sn = 0.95;             % Test sensitivity
 test_sp = 0.99;             % Test specificity
@@ -78,7 +77,7 @@ for num_sim = 1:n_sim
                                           % 4 -> Dead, 5 -> True Quarantined, 6 -> True Isolated, 7 -> Severe Infected
                                           % 8 -> False Quarantined, 9 -> False Isolated,
     
-    app = rand(n, 1) < tracking_rate;     % Randomly install tracking app to the population
+    app = rand(n, 1) < tracing_ratio;     % Randomly install tracking app to the population
     ts = zeros(n, 1);                     % COVID-19 test results
     contactCell = cell(n, 2);             % Cell array to store the contacts,
                                           % 1st column for indexes of particles, 2nd column for dates
