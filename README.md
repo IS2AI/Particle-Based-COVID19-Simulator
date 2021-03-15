@@ -1,5 +1,5 @@
-# Particle-Based-COVID19-Simulator
-Particle-based COVID-19 simulator with contact tracing and testing modules. 
+# Particle-Based-COVID-19-Simulator
+Particle-Based COVID-19 Simulator with Contact Tracing and Testing. 
 
 Link to the paper: https://ieeexplore.ieee.org/document/9372866
 
@@ -13,7 +13,7 @@ Link to the video: https://www.youtube.com/watch?v=BJfjmWfi6ac&feature=youtu.be
 
 ## How to use?
 In order to replicate results in the paper for the Lecco province, run the **main_lecco.m** file
-by setting the *tracking_rate* and *testing_rate* parameters as in the paper.
+by setting the *tracing_ratio (beta)* and *testing_rate (theta)* parameters as in the paper.
 If you are interested in simulating for a new region then you need to open **main.m** file and calibrate the model by setting new parameters. 
 
 # Note:
