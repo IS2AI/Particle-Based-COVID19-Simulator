@@ -16,7 +16,7 @@ delta_t = init_x_thr/init_v_max;    % Sampling time in days
 num_iter = ceil(sim_len/delta_t);   % Num of iterations in the simulation
 
 save_plt = 0;          % 0: don't save plots, 1: save plots.
-plt_freq = 100;       % frequency of visualizing plots
+plt_freq = 1000;       % frequency of visualizing plots
 kdt_freq = 10;         % frequency of running the KdtTree algorithm 
 load_init_states = 1;  % 1: Load initial positions x, velocities v, and indicies of exposed particles ind_exposed
                        % 0: generate random initial positions x, velocities v, and indicies of exposed particles ind_exposed
