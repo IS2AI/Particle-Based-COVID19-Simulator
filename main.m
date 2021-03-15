@@ -26,7 +26,7 @@ t_exp = 5;                  % Exposure time in days
 sir = 0.02;                 % Daily rate of Infected to Severe Infected Transition
 gamma_mor = 0.15;           % Ratio of Severe Infected who die. The rest transition to the Recovered state.
 
-tracking_rate = 0;          % Percentage of population using tracking app
+tracing_ratio = 0;          % Percentage of population using tracking app
 testing_rate = 0;           % Daily tests per thousand people
 test_sn = 0.95;             % Test sensitivity
 test_sp = 0.99;             % Test specificity
@@ -70,7 +70,7 @@ for num_sim = 1:n_sim
                                           % 4 -> Dead, 5 -> True Quarantined, 6 -> True Isolated, 7 -> Severe Infected
                                           % 8 -> False Quarantined, 9 -> False Isolated,
     
-    app = rand(n, 1) < tracking_rate;     % Randomly install tracking app to the population
+    app = rand(n, 1) < tracing_ratio;     % Randomly install tracking app to the population
     ts = zeros(n, 1);                     % COVID-19 test results
     contactCell = cell(n, 2);             % Cell array to store the contacts,
                                           % 1st column for indexes of particles, 2nd column for dates
