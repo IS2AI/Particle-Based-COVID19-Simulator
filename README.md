@@ -1,7 +1,7 @@
 # Particle-Based-COVID19-Simulator
 Particle-based COVID-19 simulator with contact tracing and testing modules. 
 
-Link to the paper: https://www.medrxiv.org/content/10.1101/2020.12.07.20245043v1
+Link to the paper: https://ieeexplore.ieee.org/document/9372866
 
 Link to the video: https://www.youtube.com/watch?v=BJfjmWfi6ac&feature=youtu.be 
 
@@ -17,18 +17,17 @@ by setting the *tracking_rate* and *testing_rate* parameters as in the paper.
 If you are interested in simulating for a new region then you need to open **main.m** file and calibrate the model by setting new parameters. 
 
 # Note:
-If you use this code in research, please cite the following paper:
+If you use this code in your research, please cite the following paper:
 ```
-@article {Kuzdeuov2020.12.07.20245043,
-	author = {Kuzdeuov, Askat and Karabay, Aknur and Baimukashev, Daulet and Ibragimov, Bauyrzhan and Varol, Huseyin Atakan},
-	title = {Particle-Based COVID-19 Simulator with Contact Tracing and Testing},
-	elocation-id = {2020.12.07.20245043},
-	year = {2020},
-	doi = {10.1101/2020.12.07.20245043},
-	URL = {https://www.medrxiv.org/content/early/2020/12/08/2020.12.07.20245043},
-	eprint = {https://www.medrxiv.org/content/early/2020/12/08/2020.12.07.20245043.full.pdf},
-	journal = {medRxiv}
-}
+@ARTICLE{9372866,
+  author={A. {Kuzdeuov} and A. {Karabay} and D. {Baimukashev} and B. {Ibragimov} and H. A. {Varol}},
+  journal={IEEE Open Journal of Engineering in Medicine and Biology}, 
+  title={Particle-Based COVID-19 Simulator with Contact Tracing and Testing}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/OJEMB.2021.3064506}}
 ```
 
 
