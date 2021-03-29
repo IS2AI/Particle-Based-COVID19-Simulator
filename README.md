@@ -22,7 +22,8 @@ Link to the video: https://www.youtube.com/watch?v=z2j4hcmmOwc
 
 ### How to use?
 - To calibrate the model, use **main_v2.m** script. It is basically a modified version of the **main.m** script. 
-We included an additional state, age, to make transitions from Infected/Isolated state to the Severely Infected state based on ages of particles.  
+We included an additional state, age, to make transitions from Infected/Isolated state to the Severely Infected state based on ages of particles. Then, you can use the calibrated model to simulate different vaccination strategies. You can also
+download the calibrated model for the province of Lecco from [here](https://drive.google.com/drive/folders/1JbNz1FaX1_lCMfWsKwQ-ZWPr47z7v6eA?usp=sharing). 
 - To simulate effective immunization cases for particles above 19, use **effective_vaccination.m** script.
 - To simulate effective immunization cases for particles between 19-69, use **effective_vaccination_v2.m** script.
 - To simulate sterilizing immunization cases for particles above 19, use **sterilizing_vaccination.m** script.
