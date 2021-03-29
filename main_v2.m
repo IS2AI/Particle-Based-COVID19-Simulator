@@ -14,16 +14,14 @@ init_v_max = 0.02;  % Maximum allowed speed of particles
 kt = 20; ka = 10; 
 [init_x_thr, init_lambda, delta_t, n_its] = config(n, sim_len, init_v_max, kt, ka);
 
-% 0: don't save plots, 
-% 1: save plots.
-save_plt = 0;   
+save_plt = 0;     % 0: don't save plots, 1: save plots.   
 plt_freq = 5000;  % frequency of visualizing plots
 kdt_freq = 10;    % frequency of running the KdtTree algorithm 
 load_states = 1;  % 1: load random initial positions, velocities, and indices of exposed particles
                   % 0: generate randomly new initial positions, velocities, and indices of exposed particles 
 
-t_inf = 14;  % Infection time in days
-t_exp = 5;   % Exposure time in days
+t_inf = 14;  % Infection period in days
+t_exp = 5;   % Exposure period in days
 
 gamma_mor = 0.14;    % Ratio of severely infected particles who die. 
 
@@ -39,7 +37,10 @@ eps_sev = 0.3;  % Disease transmission rate of severe infected compared to the i
 % 1: 0-9; 2: 10-19; 3: 20-29; 4: 30:39; 5: 40-49;
 % 6: 50-59; 7: 60-69; 8: 70-79; 9: 80+
 age_groups = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+% number of particles in each age group
 age_distrs = [28403, 32682, 33613, 37921, 48520, 51366, 43717, 28055, 32811];
+% Rate of Infected/Isolated particles getting severely infected based on
+% ages
 sir = [0, 0.01, 0.03, 0.08, 0.15, 0.6, 2.2, 5.1, 9.3]/100;
 
 % to store results of n simulations
@@ -66,13 +67,13 @@ tot_cases_n = zeros(n_its,n_sim);
 tot_sev_inf_age_n = zeros(n_its, length(age_groups), n_sim);
 tot_dead_age_n = zeros(n_its, length(age_groups), n_sim);
 
-% load actual data for Lecco
+% load actual data for the province of Lecco
 load('actual_data.mat');
 lombardy_population = 10078012;
 tot_cases_act = actual_data.total_cases;
 date_act = actual_data.date;
 tot_dead_act = ceil(actual_data.lombardy_death * n / lombardy_population);
-% load daily tests per thousand people
+% load data of daily tests per thousand people
 load('test_data.mat');
 
 %% loop over the number of simulations
@@ -81,33 +82,35 @@ for i_sim = 1:n_sim
     v_max = init_v_max;     % Initial maximum speed of particles
     lambda = init_lambda;   % Initial speed gain
     
-   % load initial x and v
+   % load initial values of x and v
     if load_states == 1
         load('initialization/x.mat')
         load('initialization/v.mat')
-    % otherwise initialize randomly
+    % otherwise initialize them randomly
     else
         x = 2 * (rand(n,2) - 0.5);             % Random initial positions
         v = 2 * v_max * (rand(n,2) - 0.5);     % Random initial velocities
     end
     
-    e = int8(zeros(n,1));   % 0 -> Susceptible, 1 -> Exposed, 2 -> Infected
-                            % 3 -> Recovered Immunized, 4 -> Dead, 5 -> True Quarantined
-                            % 6 -> True Isolated, 7 -> Sev. Infected, 8 -> False Quarantined
-                            % 9 -> False Isolated, 10 -> Vaccinated Immunized
+    e = int8(zeros(n,1));   % 0: Susceptible, 1: Exposed, 2: Infected,
+                            % 3: Recovered Immunized, 4: Dead, 5: True Quarantined
+                            % 6: True Isolated, 7: Severely Infected, 8: False Quarantined
+                            % 9: False Isolated
     
     app = rand(n,1) < tracing_ratio;         % Randomly install tracking app to the population
     ts = zeros(n,1);                         % COVID-19 test state
     vac = zeros(n,1);                        % Vaccination state
     
+    % load age of particles
     if load_states == 1
         load('initialization/age.mat')
+    % otherwise initialize randomly
     else
         age = age_state(age_distrs, age_groups); % Age state
     end
     
-    contactCell = cell(n,2);                 % Cell array to store the contacts,
-                                             % 1st column for indexes of particles, 2nd column for dates
+    contactCell = cell(n,2);      % Cell array to store the contacts,
+                                  % 1st column for indices of particles, 2nd column for dates
     
     % vectors to store states
     tot_sus = zeros(n_its,1);
@@ -144,7 +147,6 @@ for i_sim = 1:n_sim
     e(ind_exp) = 1;
     ind_inf = zeros(n,1);
     ind_rec_imm = zeros(n,1);
-    %ind_vac_imm = zeros(n,1);
     ind_dead = zeros(n,1);
     ind_qua_t = zeros(n,1);
     ind_qua_f = zeros(n,1);
@@ -158,7 +160,7 @@ for i_sim = 1:n_sim
     % start the simulation
     tic
     for ind = 1:n_its
-        % extract indices for each state
+        % extract indices for each epidemic state
         ind_sus = (e == 0);
         ind_exp = (e == 1);
         ind_inf = (e == 2);
@@ -169,7 +171,6 @@ for i_sim = 1:n_sim
         ind_sev_inf = (e == 7);
         ind_iso_f = (e == 8);
         ind_qua_f = (e == 9);
-        %ind_vac_imm = (e == 10);
         
         % extract a total number of particles in each state
         % for the current iteration
@@ -187,6 +188,8 @@ for i_sim = 1:n_sim
         tot_sev_inf(ind) = sum(ind_sev_inf);
         tot_cases(ind) = tot_inf(ind) + tot_imm(ind) + tot_dead(ind) + tot_iso(ind) + tot_qua(ind) + tot_sev_inf(ind);
         
+        % separate total number of severely infected and dead
+        % particles by age
         for k=1:length(age_groups)
             tot_sev_inf_age(ind, k) = sum((e == 7) & (age == age_groups(k)));
             tot_dead_age(ind, k) = sum((e == 4) & (age == age_groups(k)));
@@ -358,7 +361,6 @@ for i_sim = 1:n_sim
         % Infected to Severe Infected Transition
         for ind_age=1:length(sir)
             sir_ind = find(e == 2 & age == age_groups(ind_age));
-            %sir_ind = sir_ind(randperm(numel(sir_ind)));
             temp = rand(length(sir_ind),1);
             ts(sir_ind(temp < sir(ind_age) * delta_t)) = ind;
             e(sir_ind(temp < sir(ind_age) * delta_t)) = 7;
