@@ -19,6 +19,7 @@ If you are interested in simulating for a new region then you need to open **mai
 ## Vaccination Strategies for COVID-19: Effective and Sterilizing Immunization Cases. 
 
 Link to the video: https://www.youtube.com/watch?v=z2j4hcmmOwc
+Link to the paper: https://www.medrxiv.org/content/10.1101/2021.03.28.21254468v1 
 
 ### How to use?
 - To calibrate the model, use **main_v2.m** script. It is basically a modified version of the **main_lecco.m** script. 
@@ -30,7 +31,7 @@ download the calibrated model, used in the paper, for the province of Lecco from
 - To simulate sterilizing immunization cases (random vaccination/age based vaccination) for particles between 19-69, use **sterilizing_vaccination_v2.m** script.
 
 # Note:
-If you use this code in your research, please cite the following paper:
+If you use this code in your research, please cite the following papers:
 ```
 @ARTICLE{9372866,
   author={A. {Kuzdeuov} and A. {Karabay} and D. {Baimukashev} and B. {Ibragimov} and H. A. {Varol}},
@@ -42,5 +43,17 @@ If you use this code in your research, please cite the following paper:
   pages={1-1},
   doi={10.1109/OJEMB.2021.3064506}}
 ```
-
+```
+@article {Karabay2021.03.28.21254468,
+	author = {Karabay, Aknur and Kuzdeuov, Askat and Lewis, Michael and Varol, Atakan Huseyin},
+	title = {A Vaccination Simulator for COVID-19: Effective and Sterilizing Immunization Cases.},
+	elocation-id = {2021.03.28.21254468},
+	year = {2021},
+	doi = {10.1101/2021.03.28.21254468},
+	publisher = {Cold Spring Harbor Laboratory Press},
+	URL = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468},
+	eprint = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468.full.pdf},
+	journal = {medRxiv}
+}
+```
 
