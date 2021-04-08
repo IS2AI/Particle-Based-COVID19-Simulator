@@ -19,6 +19,7 @@ If you are interested in simulating for a new region then you need to open **mai
 ## Vaccination Strategies for COVID-19: Effective and Sterilizing Immunization Cases. 
 
 Link to the video: https://www.youtube.com/watch?v=z2j4hcmmOwc
+
 Link to the paper: https://www.medrxiv.org/content/10.1101/2021.03.28.21254468v1 
 
 ### How to use?
