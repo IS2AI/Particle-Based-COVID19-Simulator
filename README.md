@@ -54,7 +54,6 @@ If you use this code in your research, please cite the following papers:
 	publisher = {Cold Spring Harbor Laboratory Press},
 	URL = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468},
 	eprint = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468.full.pdf},
-	journal = {medRxiv}
-}
+	journal = {medRxiv}}
 ```
 
