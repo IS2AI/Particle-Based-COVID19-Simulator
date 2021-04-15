@@ -37,11 +37,11 @@ If you use this code in your research, please cite the following papers:
 @ARTICLE{9372866,
   author={A. {Kuzdeuov} and A. {Karabay} and D. {Baimukashev} and B. {Ibragimov} and H. A. {Varol}},
   journal={IEEE Open Journal of Engineering in Medicine and Biology}, 
-  title={Particle-Based COVID-19 Simulator with Contact Tracing and Testing}, 
+  title={A Particle-Based COVID-19 Simulator With Contact Tracing and Testing}, 
   year={2021},
-  volume={},
+  volume={2},
   number={},
-  pages={1-1},
+  pages={111-117},
   doi={10.1109/OJEMB.2021.3064506}}
 ```
 ```
