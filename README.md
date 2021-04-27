@@ -3,24 +3,12 @@
 1. OS Windows/Linux/Mac.
 2. MATLAB R2019/R2020. 
 
-## Particle-Based COVID-19 Simulator with Contact Tracing and Testing. 
+## COVID-19 Vaccination Strategies Considering Hesitancy Using Particle-Based Epidemic Simulation 
 
-Link to the paper: https://ieeexplore.ieee.org/document/9372866
+Link to the paper: 
 
-Link to the video: https://www.youtube.com/watch?v=BJfjmWfi6ac&feature=youtu.be 
+Link to the video: 
 
-<img src="https://raw.githubusercontent.com/IS2AI/Particle-Based-COVID19-Simulator/main/particles_based_epidemic_simulation.gif">
-
-### How to use?
-In order to replicate results in the paper for the Lecco province, run the **main_lecco.m** file
-by setting the *tracing_ratio (beta)* and *testing_rate (theta)* parameters as in the paper.
-If you are interested in simulating for a new region then you need to open **main.m** file and calibrate the model by setting new parameters. 
-
-## Vaccination Strategies for COVID-19: Effective and Sterilizing Immunization Cases. 
-
-Link to the video: https://www.youtube.com/watch?v=z2j4hcmmOwc
-
-Link to the paper: https://www.medrxiv.org/content/10.1101/2021.03.28.21254468v1 
 
 ### How to use?
 - To calibrate the model, use **main_v2.m** script. It is basically a modified version of the **main_lecco.m** script. 
