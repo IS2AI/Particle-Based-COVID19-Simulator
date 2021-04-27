@@ -11,7 +11,7 @@ Link to the video:
 
 
 ### How to use?
-- To calibrate the model, use **main_v2.m** script. It is basically a modified version of the **main_lecco.m** script. Then, you can use the calibrated model to simulate different vaccination strategies. You can also
+- To calibrate the model, use **main_v2.m** script. Then, you can use the calibrated model to simulate different vaccination strategies. You can also
 download the calibrated model, used in the paper, for the province of Lecco from [here](https://drive.google.com/drive/folders/1JbNz1FaX1_lCMfWsKwQ-ZWPr47z7v6eA?usp=sharing). 
 - We added a vaccine hesitancy status to the particle model to exclude certain randomly selected vector of particles that are assined to be vaccine hesitant from the vaccination.
 - To simulate effective immunization cases (random vaccination/age based vaccination) considering hesitancy, use **hesitancy_effective_vaccination.m** script.
