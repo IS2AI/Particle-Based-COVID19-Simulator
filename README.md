@@ -5,10 +5,8 @@
 
 ## COVID-19 Vaccination Strategies Considering Hesitancy Using Particle-Based Epidemic Simulation 
 
-Link to the paper: 
-
-Link to the video: 
-
+Link to the paper: will be posted later 
+ 
 
 ### How to use?
 - To calibrate the model, use **main_v2.m** script. This file contains the parameters' values we used to calibrate the model for province of Lecco, Italy. For more information please refer to the papers listed below. Then, you can use the calibrated model to simulate different vaccination strategies. You can also
