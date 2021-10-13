@@ -45,15 +45,15 @@ If you use this code in your research, please cite the following papers:
   doi={10.1109/OJEMB.2021.3064506}}
 ```
 ```
-@article {Karabay2021.03.28.21254468,
-	author = {Karabay, Aknur and Kuzdeuov, Askat and Lewis, Michael and Varol, Atakan Huseyin},
-	title = {A Vaccination Simulator for COVID-19: Effective and Sterilizing Immunization Cases.},
-	elocation-id = {2021.03.28.21254468},
-	year = {2021},
-	doi = {10.1101/2021.03.28.21254468},
-	publisher = {Cold Spring Harbor Laboratory Press},
-	URL = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468},
-	eprint = {https://www.medrxiv.org/content/early/2021/04/04/2021.03.28.21254468.full.pdf},
-	journal = {medRxiv}}
+@ARTICLE{9542855,
+  author={Karabay, Aknur and Kuzdeuov, Askat and Ospanova, Shyryn and Lewis, Michael and Varol, Huseyin Atakan},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={A Vaccination Simulator for COVID-19: Effective and Sterilizing Immunization Cases}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/JBHI.2021.3114180}}
+
 ```
 
