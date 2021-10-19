@@ -20,7 +20,7 @@ If you are interested in simulating for a new region then you need to open **mai
 
 Link to the video: https://www.youtube.com/watch?v=z2j4hcmmOwc
 
-Link to the paper: https://www.medrxiv.org/content/10.1101/2021.03.28.21254468v1 
+Link to the paper: https://ieeexplore.ieee.org/abstract/document/9542855 
 
 ### How to use?
 - To calibrate the model, use **main_v2.m** script. It is basically a modified version of the **main_lecco.m** script. 
